@@ -27,11 +27,11 @@ const companySchema = new Schema({
     companyHR : {
         type: Schema.Types.ObjectId,
         required : true,
-        ref : "user"
+        ref : "User"
     }
 })
 
 
-const companyModel = model("company", companySchema)
+const companyModel = model("Company", companySchema)
 
 export default companyModel;

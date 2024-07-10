@@ -24,7 +24,7 @@ export const signUp = async(req, res, next) =>{
     
     // generate token for confirmation
     const token = jwt.sign({email},
-        "confirmedSignature"
+        process.env.CONFIRM_SECRET
     );
     const  link  = `${req.protocol}://${req.headers.host}/user/confirmEmail/${token}`;
 
@@ -40,7 +40,7 @@ export const signUp = async(req, res, next) =>{
     };
 
     // hash password
-    const hashedPassword = bcrypt.hashSync(password, 8)
+    const hashedPassword = bcrypt.hashSync(password,8)
 
     // create new user
     const newUser = await userModel.create({
@@ -74,7 +74,7 @@ export const confirmEmail = async (req , res, next) =>{
     //decode token to get email address
     const decodeToken = jwt.verify(
     token,
-    "confirmedSignature");
+    process.env.CONFIRM_SECRET);
 
     // check if token not decoded successfully
     if(!decodeToken){
@@ -95,7 +95,13 @@ export const confirmEmail = async (req , res, next) =>{
     return res.status(200).json({msg : "Email confirmed successfully"})
 }
 
-
+/**
+ * @param {object} req
+ * @param {object} res
+ * @param {object} next
+ * @returns {object} => return response { message , token }
+ * @description   => login user
+ */
 export const Login = async(req, res, next) =>{
     const {email, recoveryEmail, mobileNumber, password} = req.body
     
@@ -108,28 +114,37 @@ export const Login = async(req, res, next) =>{
     }
     
     // generate and return token  for user  
-    const  token = jwt.sign({id : user._id, email },"accessSignature")
+    const  token = jwt.sign({id : user._id, email },process.env.LOGIN_SECRET)
     return res.status(200).json({msg : "Login success", token})
 }
 
-
+/**
+ * @param {object} req
+ * @param {object} res
+ * @param {object} next
+ * @returns {object} => return response { message , UpdatedData}
+ * @description   => Update Data of user
+ */
 export const updateAccount = async(req, res, next) =>{
     const { email , mobileNumber , recoveryEmail , DOB , lastName , firstName} = req.body;
 
     // Ensure only the owner of the account can update their data
     const userId = req.authUser._id;
-
-    const user = await userModel.findById(userId);
+    const user = await userModel.findById(userId)
      //check if user not found
      if(!user){
         return next (new errorClass("User not found",404));
     }
-
+    // Ensure only the owner of the account can update their data
+    if (!userId.equals(user._id)) {
+        return next(new errorClass('You are not authorized to update this account', 403));
+    }
+    
     // Check for existing email conflict
-    if (email && email !== user.email) {
+    if (email) {
         const existingEmailUser = await userModel.findOne({ email });
         if (existingEmailUser) {
-            return next(new errorClass('Email is already in use', 409));
+            return next(new errorClass('Email is already exist', 409));
         }
     }
 
@@ -150,6 +165,24 @@ export const updateAccount = async(req, res, next) =>{
         firstName: firstName || user.firstName
     };
 
+     // generate token for confirmation
+     const token = jwt.sign({email},
+        process.env.CONFIRM_SECRET
+    );
+    const  link  = `${req.protocol}://${req.headers.host}/user/confirmEmail/${token}`;
+
+    // send email with confirmation link
+    const isEmailSent =   await sendEmail(
+        email ,
+        "welcome to job searching app",
+        `<a href = '${link}' >confirm email</a>`);
+    
+    // check if email not sent
+    if(!isEmailSent){
+        return next(new errorClass("failed to send email",400))
+    };
+
+
     // Update the user's data using findOneAndUpdate
     const updatedUser = await userModel.findOneAndUpdate(
         { _id: userId },
@@ -165,7 +198,13 @@ export const updateAccount = async(req, res, next) =>{
    
 }
 
-
+/**
+ * @param {object} req
+ * @param {object} res
+ * @param {object} next
+ * @returns {object} => return response { message }
+ * @description   => delete Data of user
+ */
 
 export const deleteAccount = async(req, res, next) =>{
 
@@ -243,11 +282,12 @@ export const updatePassword = async(req, res, next) =>{
      if(!user){
         return next (new errorClass("User not found",404));
     }
-
+    // hash password
+    const hashedPassword = bcrypt.hashSync(user.password, 8);
     // Update the user's data using findOneAndUpdate
     const updatedUser = await userModel.findOneAndUpdate(
         { _id: userId },
-        {password},
+        {password : hashedPassword},
         { new: true }
     );
     res.status(200).json({msg: 'password updated successfully'});
@@ -272,7 +312,7 @@ export const forgetPassword = async(req, res, next) =>{
             return res.status(200).json({ msg: 'OTP sent' });
     }
     // hash password
-    const hashedPassword = bcrypt.hashSync(newPassword, 8);
+    const hashedPassword = bcrypt.hashSync(newPassword, process.env.SALT_ROUND);
 
     // update password with new password
     const updateNewPassword = await userModel.updateOne({email}, {password : hashedPassword});

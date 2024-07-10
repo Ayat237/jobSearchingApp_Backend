@@ -6,8 +6,16 @@ import companyRouter from './src/modules/company/company.routes.js'
 import jobRouter from './src/modules/job/job.routes.js'
 import { errorClass } from './utils/error-class.utils.js'
 
+// env configuration
+import {config} from "dotenv";
+config();
+
+
 const app = express()
-const port = 5000
+let port = process.env.PORT; 
+
+if(process.env.NODE_ENV == "dev") port = 5000;
+if(process.env.NODE_ENV == "prod") port = 4000;
 
 //db connection
 connectionDB()
@@ -16,7 +24,6 @@ connectionDB()
 app.use(express.json())
 app.use('/user', userRouter);
 app.use('/job', jobRouter);
-// app.use('/application', applicationRouter);
 app.use('/company', companyRouter);
 app.use('/*', (req, res, next) => {
     return next (new errorClass(`Invalid URL : ${req.originalUrl}`,404))
@@ -24,6 +31,6 @@ app.use('/*', (req, res, next) => {
 
 // golbal error handler response
 app.use(golbalResponse);
-
+console.log(process.env)
 // start the server
 app.listen(port, () => console.log(`app listening on port ${port}!`))

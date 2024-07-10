@@ -6,14 +6,14 @@ import { errorClass } from "../../utils/error-class.utils.js"
  * @returns  {Function} => Middleware function
  * @description => Middleware to handle API requests error messages
 */
-export const errorHandler =(API) => {
-    return (req, res, next) => {
-        API(req, res, next).catch((err) => {
-            next(new errorClass("Internal Server error", 500,err.message));
-        })
-    }
-}  
 
+export const errorHandler = (API) => {
+    return (req, res, next) => {
+        Promise.resolve(API(req, res, next)).catch((err) => {
+            next(new errorClass("Internal Server error", 500, err.message));
+        });
+    };
+};
 
 /**
  * @param {object} err

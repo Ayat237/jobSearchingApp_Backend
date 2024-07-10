@@ -34,8 +34,15 @@ const jobSchema = new Schema({
     addedBy:{
         type : Schema.Types.ObjectId,
         required: true,
-        ref : 'user'
+        ref : 'User'
+    },
+    company: {
+        type: Schema.Types.ObjectId,
+        ref: 'Company'
     }
+},{
+    timestamps: true ,
+    versionKey: false
 })
 
 const jobModel = model("Job",jobSchema);

@@ -12,20 +12,42 @@ const router = Router();
 
 router.post("/add",
     errorHandler(authenticatation()),
-    autherization(roles.HR_ROLE),
+    errorHandler(autherization(roles.HR_ROLE)),
     errorHandler(validation(VS.addCompanyValidSchema)),
     errorHandler(JC.addJob));
 
 router.put("/update/:id",
     errorHandler(authenticatation()),
-    autherization(roles.HR_ROLE),
+    errorHandler(autherization(roles.HR_ROLE)),
     errorHandler(validation(VS.addCompanyValidSchema)),
     errorHandler(JC.updateJob));
 
 router.delete("/delete/:id",
     errorHandler(authenticatation()),
-    autherization(roles.HR_ROLE),
+    errorHandler(autherization(roles.HR_ROLE)),
     errorHandler(validation(VS.deleteCompanyValidSchema)),
     errorHandler(JC.deleteJob));
 
+router.get("/all/:companyName",
+    errorHandler(authenticatation()),
+    errorHandler(autherization(roles.USER_HR_ROLE)),
+    errorHandler(validation(VS.getAllJobWithCompanyValidSchema)),
+    errorHandler(JC.getAllJobWithCompany));
+    
+router.get("/all",
+    errorHandler(authenticatation()),
+    errorHandler(autherization(roles.USER_HR_ROLE)),
+    errorHandler(JC.getAllJobsWithCompanies));
+
+router.get("/filter",
+    errorHandler(authenticatation()),
+    errorHandler(autherization(roles.USER_HR_ROLE)),
+    errorHandler(validation(VS.filterJobsValidSchema)),
+    errorHandler(JC.filterJobs));
+
+router.post("/apply/:jobId",
+    errorHandler(authenticatation()),
+    errorHandler(autherization(roles.USER_ROLE)),
+    errorHandler(validation(VS.applyJobValidSchema)),
+    errorHandler(JC.applyJob));
 export default router;

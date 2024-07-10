@@ -1,0 +1,619 @@
+{
+	"info": {
+		"_postman_id": "906f2100-d21f-4024-a2cf-58966515ec47",
+		"name": "Job_Searching_App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34731600"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "signUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\" : \"ayat\",\r\n    \"lastName\" : \"mohamed\",\r\n    \"userName\" : \"ayat mohamed\",\r\n    \"email\" : \"yoka91011@gmail.com\",\r\n    \"password\" : \"Ayat12345!21\",\r\n    \"recoveryEmail\" : \"01011639551\",\r\n    \"DOB\" : \"2002-07-23\",\r\n    \"mobileNumber\" : \"01011569543\",\r\n    \"role\": \"companyHR\",\r\n    \"status\" : \"offline\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5000/user/signUp"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"yoka91011@gmail.com\",\r\n    \"password\" : \"Ayat12345!21\"\r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5000/user/login"
+					},
+					"response": []
+				},
+				{
+					"name": "getUserAccountData",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRhMTdlNzM3YmZmMGY5ZWE1YThjMyIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU1Nzk4OH0.KZscOV2SadCiBquueHl9j8R-gv6se9DBjJI1P21e7lU",
+								"type": "text"
+							},
+							{
+								"key": "owner",
+								"value": "668da17e737bff0f9ea5a8c3",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5000/user"
+					},
+					"response": []
+				},
+				{
+					"name": "getUserAnotherProfile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRhMTdlNzM3YmZmMGY5ZWE1YThjMyIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU1OTk1NX0.3Sj6nxwg9i2_AU_TAo8OyLWNVhDCiSOOUW-owQOJNxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5000/user/668da7e85da257e8e43df414"
+					},
+					"response": []
+				},
+				{
+					"name": "getAssociatedAcounts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRhMTdlNzM3YmZmMGY5ZWE1YThjMyIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU1OTk1NX0.3Sj6nxwg9i2_AU_TAo8OyLWNVhDCiSOOUW-owQOJNxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"recoveryEmail\" : \"01011639551\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5000/user/account"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAccount",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGQ5MmJmYzA3OWI1NzhmNGZkMTM4MiIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU1NjY4Nn0.cQaTNf3lp5D5cLzit_qggWiNyt0IzXIPNXoCzaUFEEg",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5000/user/delete"
+					},
+					"response": []
+				},
+				{
+					"name": "updateAccount",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGUwYjViYWQ4Y2VkNTgzNmU4NmQ2ZSIsImVtYWlsIjoieW9rYTkxMDExQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU4NTEzOH0.wr2Xi9iXuM56PcgH9Hs51remYy2h6Q_rysFu9oyOevs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"yoka91011@gmail.com\",\r\n    \"mobileNumber\" : \"01011639541\",\r\n    \"DOB\" : \"2002-07-25\",\r\n    \"recoveryEmail\" : \"01011639565\",\r\n    \"firstName\" : \"ayat\",\r\n    \"lastName\" : \"mohamed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5000/user/update"
+					},
+					"response": []
+				},
+				{
+					"name": "updatePassword",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGUwYjViYWQ4Y2VkNTgzNmU4NmQ2ZSIsImVtYWlsIjoieW9rYTkxMDExQGdtYWlsLmNvbSIsImlhdCI6MTcyMDY0NDc1NH0.TAJgS5lnGIK7Brwv8aD9m789iBYxDcNQP_QsD-j5gQo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\" : \"AyattMohamed45!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5000/user/updatePass"
+					},
+					"response": []
+				},
+				{
+					"name": "forgetPassword",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRhMTdlNzM3YmZmMGY5ZWE1YThjMyIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU1OTk1NX0.3Sj6nxwg9i2_AU_TAo8OyLWNVhDCiSOOUW-owQOJNxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"ayatmohamed2372002@gmail.com\",\r\n    \"newPassword\": \"Ayatsmc435!\",\r\n    \"otp\" : \"5b7d18\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5000/user/forgetPass"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "company",
+			"item": [
+				{
+					"name": "addCompany",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRjN2EyZjZmOTA3ZjMyYjdhNGRkNSIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU2OTE0MX0.X67bKCqV7DlkgKvy-DXEmNsb8qTOH4lLJtI6yitjLxQ",
+								"type": "text"
+							},
+							{
+								"key": "companyhr",
+								"value": "668dc7a2f6f907f32b7a4dd5",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\" : \"route\" , \r\n    \"description\" : \"webcourses\" ,\r\n    \"industry\" : \"academiccourses\" ,\r\n    \"address\": \"maddi\",\r\n    \"numberOfEmployees\": 15,\r\n    \"companyEmail\" : \"route@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5000/company/add"
+					},
+					"response": []
+				},
+				{
+					"name": "updateCompany",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRjN2EyZjZmOTA3ZjMyYjdhNGRkNSIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU2OTE0MX0.X67bKCqV7DlkgKvy-DXEmNsb8qTOH4lLJtI6yitjLxQ",
+								"type": "text"
+							},
+							{
+								"key": "companyhr",
+								"value": "668dc7a2f6f907f32b7a4dd5",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\" : \"route\" , \r\n    \"description\" : \"webcourses\" ,\r\n    \"industry\" : \"academiccourses\" ,\r\n    \"address\": \"maddi,NaserCity\",\r\n    \"numberOfEmployees\": 16,\r\n    \"companyEmail\" : \"route2@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5000/company/update"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCompany",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRjN2EyZjZmOTA3ZjMyYjdhNGRkNSIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU2OTE0MX0.X67bKCqV7DlkgKvy-DXEmNsb8qTOH4lLJtI6yitjLxQ",
+								"type": "text"
+							},
+							{
+								"key": "companyhr",
+								"value": "668dc7a2f6f907f32b7a4dd5",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\" : \"route\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5000/company/delete"
+					},
+					"response": []
+				},
+				{
+					"name": "getCompanyData",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGUwYjViYWQ4Y2VkNTgzNmU4NmQ2ZSIsImVtYWlsIjoieW9rYTkxMDExQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU4OTMyOX0.PmA8XnVrGSwR4ZRefbdSeA_iRR57OGpDaSEdyZyNp4M",
+								"type": "text"
+							},
+							{
+								"key": "companyhr",
+								"value": "668dc7a2f6f907f32b7a4dd5",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5000/company/668e0bf4ad8ced5836e86d76"
+					},
+					"response": []
+				},
+				{
+					"name": "searchCompany",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRjN2EyZjZmOTA3ZjMyYjdhNGRkNSIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU2OTE0MX0.X67bKCqV7DlkgKvy-DXEmNsb8qTOH4lLJtI6yitjLxQ",
+								"type": "text"
+							},
+							{
+								"key": "companyhr",
+								"value": "668dc7a2f6f907f32b7a4dd5",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\" : \"RouteAcademy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5000/company"
+					},
+					"response": []
+				},
+				{
+					"name": "getApplicationForJob",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGUwYjViYWQ4Y2VkNTgzNmU4NmQ2ZSIsImVtYWlsIjoieW9rYTkxMDExQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU4NTEzOH0.wr2Xi9iXuM56PcgH9Hs51remYy2h6Q_rysFu9oyOevs",
+								"type": "text"
+							},
+							{
+								"key": "companyhr",
+								"value": "668dc7a2f6f907f32b7a4dd5",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5000/company/app/668ed7a920715cdf8ae70d2f"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "job",
+			"item": [
+				{
+					"name": "updateJob",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRjN2EyZjZmOTA3ZjMyYjdhNGRkNSIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU2OTE0MX0.X67bKCqV7DlkgKvy-DXEmNsb8qTOH4lLJtI6yitjLxQ",
+								"type": "text"
+							},
+							{
+								"key": "companyhr",
+								"value": "668dc7a2f6f907f32b7a4dd5",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "addedby",
+								"value": "668e0b5bad8ced5836e86d6e",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jobTitle\" : \"Nodejs-backend\", \r\n    \"jobLocation\": \"onsite\" ,\r\n    \"workingTime\" :\"full-time\",\r\n    \"seniorityLevel\": \"Junior\", \r\n    \"jobDescription\" : \"job search application website\",\r\n    \"technicalSkills\" : [\"js\",\"nodejs\"],\r\n    \"softSkills\": [\"time management\",\"team worker\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5000/job/update/668e2773c5e3bb2cb71bb0d4"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteJob",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRjN2EyZjZmOTA3ZjMyYjdhNGRkNSIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU2OTE0MX0.X67bKCqV7DlkgKvy-DXEmNsb8qTOH4lLJtI6yitjLxQ",
+								"type": "text"
+							},
+							{
+								"key": "companyhr",
+								"value": "668dc7a2f6f907f32b7a4dd5",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5000/job/delete/668e2773c5e3bb2cb71bb0d4"
+					},
+					"response": []
+				},
+				{
+					"name": "addJob",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGUwYjViYWQ4Y2VkNTgzNmU4NmQ2ZSIsImVtYWlsIjoieW9rYTkxMDExQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU4NTEzOH0.wr2Xi9iXuM56PcgH9Hs51remYy2h6Q_rysFu9oyOevs",
+								"type": "text"
+							},
+							{
+								"key": "addedby",
+								"value": "668e0b5bad8ced5836e86d6e",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jobTitle\" : \"backend\", \r\n    \"jobLocation\": \"onsite\" ,\r\n    \"workingTime\" :\"part-time\",\r\n    \"seniorityLevel\": \"Junior\", \r\n    \"jobDescription\" : \"job search application website\",\r\n    \"technicalSkills\" : [\"js\",\"nodeJs\"],\r\n    \"softSkills\": [\"time management\",\"team worker\"],\r\n    \"company\" : \"668ece192635ed35fbec7517\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5000/job/add"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllJobWithCompany",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGUwYjViYWQ4Y2VkNTgzNmU4NmQ2ZSIsImVtYWlsIjoieW9rYTkxMDExQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU4NTEzOH0.wr2Xi9iXuM56PcgH9Hs51remYy2h6Q_rysFu9oyOevs",
+								"type": "text"
+							}
+						],
+						"url": "localhost:5000/job/all/RouteAcademy"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllJobsWithCompanies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGUwYjViYWQ4Y2VkNTgzNmU4NmQ2ZSIsImVtYWlsIjoieW9rYTkxMDExQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU4NTEzOH0.wr2Xi9iXuM56PcgH9Hs51remYy2h6Q_rysFu9oyOevs",
+								"type": "text"
+							}
+						],
+						"url": "localhost:5000/job/all"
+					},
+					"response": []
+				},
+				{
+					"name": "filterJobs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGUwYjViYWQ4Y2VkNTgzNmU4NmQ2ZSIsImVtYWlsIjoieW9rYTkxMDExQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU4NTEzOH0.wr2Xi9iXuM56PcgH9Hs51remYy2h6Q_rysFu9oyOevs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/job/filter?jobLocation=onsite&workingTime=part-time",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"job",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "jobLocation",
+									"value": "onsite"
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "workingTime",
+									"value": "part-time"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "applyJob",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGUwYjViYWQ4Y2VkNTgzNmU4NmQ2ZSIsImVtYWlsIjoieW9rYTkxMDExQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU4NTEzOH0.wr2Xi9iXuM56PcgH9Hs51remYy2h6Q_rysFu9oyOevs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userTechSkills\": [\"skill1\", \"skill2\"],\r\n    \"userSoftSkills\": [\"softSkill1\", \"softSkill2\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5000/job/apply/668ed7a920715cdf8ae70d2f"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

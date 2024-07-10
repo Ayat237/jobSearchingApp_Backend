@@ -13,7 +13,10 @@ const applicationSchema = new Schema({
         type : [String],
         required : true
     },
-    userSoftSkills : [String]
+    userSoftSkills :{
+        type : [String],
+        required : true
+    }
 })
 
 

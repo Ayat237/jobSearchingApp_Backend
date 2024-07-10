@@ -6,7 +6,7 @@ export const autherization = (allowedRules) => {
         const auth = req.authUser; 
 
         // if the user is not authenticated
-        if(!allowedRules.includes(auth.role)){
+        if(!auth || !allowedRules.includes(auth.role)){
             return next (new errorClass(
                 "Autherzation Error" ,
                 401,

@@ -1,7 +1,6 @@
 import applicationModel from "../../../DB/models/application.model.js";
 import companyModel from "../../../DB/models/company.model.js";
 import jobModel from "../../../DB/models/job.model.js";
-import userModel from "../../../DB/models/user.model.js";
 import { errorClass } from "../../../utils/error-class.utils.js";
 
 
@@ -119,7 +118,7 @@ export const searchCompany = async (req, res, next) =>{
 
 export const  getApplicationsForJob = async(req, res, next)=>{
     const {jobId } = req.params;
-
+    const {_id : userId} = req.authUser 
     // Find the job and ensure it belongs to the company owner
     const job = await jobModel.findById(jobId);
     // check if job not found
@@ -128,12 +127,12 @@ export const  getApplicationsForJob = async(req, res, next)=>{
     }
 
     // Ensure the authenticated user is the HR who added the job
-    if (!job.addedBy.equals(req.authUser._id)) {
+    if (!job.addedBy.equals(userId)){
         return next(new errorClass("You are not authorized to view applications for this job", 403));
     }
 
    // Find all applications for the specified job and populate user data
-   const applications = await applicationModel.find({ jobId }).populate('user');
+   const applications = await applicationModel.find({ jobId }).populate('userId');
 
     // Return the applications with user data
     return res.status(200).json({ applications });

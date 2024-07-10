@@ -19,7 +19,7 @@ export const authenticatation =()=>{
             return next(new errorClass("token error",400,"Token is not found"))
         }
         // verify token
-        const decoded = jwt.verify(newToken,"accessSignature")
+        const decoded = jwt.verify(newToken,process.env.LOGIN_SECRET)
         // if decoded of token not contain on id 
         if(!decoded?.id){
             return next(new errorClass("token error",400,"invalid payload"))
