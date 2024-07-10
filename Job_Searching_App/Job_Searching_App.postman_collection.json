@@ -1,0 +1,696 @@
+{
+	"info": {
+		"_postman_id": "906f2100-d21f-4024-a2cf-58966515ec47",
+		"name": "Job_Searching_App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34731600"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "signUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Ayat\",\r\n    \"email\" : \"ayatmohamed2372002@gmail.com\",\r\n    \"password\" : \"Ayat12\",\r\n    \"age\": \"22\"\r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/user/signUp",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"signUp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"AyatMohamed@gmail.com\",\r\n    \"password\" : \"3457895\"\r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/user/signIn",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"signIn"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserAccountData",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRhMTdlNzM3YmZmMGY5ZWE1YThjMyIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU1Nzk4OH0.KZscOV2SadCiBquueHl9j8R-gv6se9DBjJI1P21e7lU",
+								"type": "text"
+							},
+							{
+								"key": "owner",
+								"value": "668da17e737bff0f9ea5a8c3",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/user",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserAnotherProfile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRhMTdlNzM3YmZmMGY5ZWE1YThjMyIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU1OTk1NX0.3Sj6nxwg9i2_AU_TAo8OyLWNVhDCiSOOUW-owQOJNxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/user/668da7e85da257e8e43df414",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"668da7e85da257e8e43df414"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAssociatedAcounts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRhMTdlNzM3YmZmMGY5ZWE1YThjMyIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU1OTk1NX0.3Sj6nxwg9i2_AU_TAo8OyLWNVhDCiSOOUW-owQOJNxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"recoveryEmail\" : \"01011639551\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/user/account",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAccount",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGQ5MmJmYzA3OWI1NzhmNGZkMTM4MiIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU1NjY4Nn0.cQaTNf3lp5D5cLzit_qggWiNyt0IzXIPNXoCzaUFEEg",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/user/delete",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateAccount",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGQ3YjRlZDkwNTZlYzNjYTVmMjE3MSIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU0ODE5Mn0.upYb73WBKfwQLo_yQAE044d5QcmKEGegQiVh4Z3AR9w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"ayatmohamed2372002@gmail.com\",\r\n    \"mobileNumber\" : \"01011639551\",\r\n    \"DOB\" : \"2002-07-25\",\r\n    \"recoveryEmail\" : \"ayatmohamed2372002@gmail.com\",\r\n    \"firstName\" : \"Ayat\",\r\n    \"lastName\" : \"Mohamed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/user/update",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePassword",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRhMTdlNzM3YmZmMGY5ZWE1YThjMyIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU1OTk1NX0.3Sj6nxwg9i2_AU_TAo8OyLWNVhDCiSOOUW-owQOJNxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\" : \"AyattMohamed234!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/user/updatePass",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"updatePass"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgetPassword",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRhMTdlNzM3YmZmMGY5ZWE1YThjMyIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU1OTk1NX0.3Sj6nxwg9i2_AU_TAo8OyLWNVhDCiSOOUW-owQOJNxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\" : \"AyattMohamed234!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/user/updatePass",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user",
+								"updatePass"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "company",
+			"item": [
+				{
+					"name": "addCompany",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRjN2EyZjZmOTA3ZjMyYjdhNGRkNSIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU2OTE0MX0.X67bKCqV7DlkgKvy-DXEmNsb8qTOH4lLJtI6yitjLxQ",
+								"type": "text"
+							},
+							{
+								"key": "companyhr",
+								"value": "668dc7a2f6f907f32b7a4dd5",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\" : \"route\" , \r\n    \"description\" : \"webcourses\" ,\r\n    \"industry\" : \"academiccourses\" ,\r\n    \"address\": \"maddi\",\r\n    \"numberOfEmployees\": 15,\r\n    \"companyEmail\" : \"route@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/company/add",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"company",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCompany",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRjN2EyZjZmOTA3ZjMyYjdhNGRkNSIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU2OTE0MX0.X67bKCqV7DlkgKvy-DXEmNsb8qTOH4lLJtI6yitjLxQ",
+								"type": "text"
+							},
+							{
+								"key": "companyhr",
+								"value": "668dc7a2f6f907f32b7a4dd5",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\" : \"route\" , \r\n    \"description\" : \"webcourses\" ,\r\n    \"industry\" : \"academiccourses\" ,\r\n    \"address\": \"maddi,NaserCity\",\r\n    \"numberOfEmployees\": 16,\r\n    \"companyEmail\" : \"route2@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/company/update",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"company",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCompany",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRjN2EyZjZmOTA3ZjMyYjdhNGRkNSIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU2OTE0MX0.X67bKCqV7DlkgKvy-DXEmNsb8qTOH4lLJtI6yitjLxQ",
+								"type": "text"
+							},
+							{
+								"key": "companyhr",
+								"value": "668dc7a2f6f907f32b7a4dd5",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\" : \"route\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/company/delete",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"company",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCompanyData",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRjN2EyZjZmOTA3ZjMyYjdhNGRkNSIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU2OTE0MX0.X67bKCqV7DlkgKvy-DXEmNsb8qTOH4lLJtI6yitjLxQ",
+								"type": "text"
+							},
+							{
+								"key": "companyhr",
+								"value": "668dc7a2f6f907f32b7a4dd5",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/company/668df96ee05cda5f5d0fb1f5",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"company",
+								"668df96ee05cda5f5d0fb1f5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchCompany",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRjN2EyZjZmOTA3ZjMyYjdhNGRkNSIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU2OTE0MX0.X67bKCqV7DlkgKvy-DXEmNsb8qTOH4lLJtI6yitjLxQ",
+								"type": "text"
+							},
+							{
+								"key": "companyhr",
+								"value": "668dc7a2f6f907f32b7a4dd5",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\" : \"Route\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/company",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getApplicationForJob",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRjN2EyZjZmOTA3ZjMyYjdhNGRkNSIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU2OTE0MX0.X67bKCqV7DlkgKvy-DXEmNsb8qTOH4lLJtI6yitjLxQ",
+								"type": "text"
+							},
+							{
+								"key": "companyhr",
+								"value": "668dc7a2f6f907f32b7a4dd5",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/company/668df96ee05cda5f5d0fb1f5",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"company",
+								"668df96ee05cda5f5d0fb1f5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "job",
+			"item": [
+				{
+					"name": "updateJob",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRjN2EyZjZmOTA3ZjMyYjdhNGRkNSIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU2OTE0MX0.X67bKCqV7DlkgKvy-DXEmNsb8qTOH4lLJtI6yitjLxQ",
+								"type": "text"
+							},
+							{
+								"key": "companyhr",
+								"value": "668dc7a2f6f907f32b7a4dd5",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\" : \"route\" , \r\n    \"description\" : \"webcourses\" ,\r\n    \"industry\" : \"academiccourses\" ,\r\n    \"address\": \"maddi,NaserCity\",\r\n    \"numberOfEmployees\": 16,\r\n    \"companyEmail\" : \"route2@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/company/update",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"company",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteJob",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGRjN2EyZjZmOTA3ZjMyYjdhNGRkNSIsImVtYWlsIjoiYXlhdG1vaGFtZWQyMzcyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU2OTE0MX0.X67bKCqV7DlkgKvy-DXEmNsb8qTOH4lLJtI6yitjLxQ",
+								"type": "text"
+							},
+							{
+								"key": "companyhr",
+								"value": "668dc7a2f6f907f32b7a4dd5",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"companyName\" : \"route\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/company/delete",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"company",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addJob",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "user_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2OGUwYjViYWQ4Y2VkNTgzNmU4NmQ2ZSIsImVtYWlsIjoieW9rYTkxMDExQGdtYWlsLmNvbSIsImlhdCI6MTcyMDU4NTEzOH0.wr2Xi9iXuM56PcgH9Hs51remYy2h6Q_rysFu9oyOevs",
+								"type": "text"
+							},
+							{
+								"key": "addedby",
+								"value": "668e0b5bad8ced5836e86d6e",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jobTitle\" : \"backend\", \r\n    \"jobLocation\": \"onsite\" ,\r\n    \"workingTime\" :\"part-time\",\r\n    \"seniorityLevel\": \"Junior\", \r\n    \"jobDescription\" : \"job search application website\",\r\n    \"technicalSkills\" : [\"js\",\"nodejs\"],\r\n    \"softSkills\": [\"time management\",\"team worker\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/job/add",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"job",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
