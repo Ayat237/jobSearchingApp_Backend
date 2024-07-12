@@ -312,7 +312,7 @@ export const forgetPassword = async(req, res, next) =>{
             return res.status(200).json({ msg: 'OTP sent' });
     }
     // hash password
-    const hashedPassword = bcrypt.hashSync(newPassword, process.env.SALT_ROUND);
+    const hashedPassword = bcrypt.hashSync(newPassword, 8);
 
     // update password with new password
     const updateNewPassword = await userModel.updateOne({email}, {password : hashedPassword});
