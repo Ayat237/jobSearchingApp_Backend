@@ -31,6 +31,5 @@ app.use('/*', (req, res, next) => {
 
 // golbal error handler response
 app.use(golbalResponse);
-console.log(process.env)
 // start the server
 app.listen(port, () => console.log(`app listening on port ${port}!`))
