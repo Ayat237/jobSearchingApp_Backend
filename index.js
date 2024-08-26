@@ -25,15 +25,17 @@ app.use(express.json())
 app.use('/user', userRouter);
 app.use('/job', jobRouter);
 app.use('/company', companyRouter);
+app.use('/', (req, res, next) => {
+    return res.status(200).json({
+        message: 'Server is running',
+    })
+})
+
 app.use('/*', (req, res, next) => {
     return next (new errorClass(`Invalid URL : ${req.originalUrl}`,404))
 })
 
 // golbal error handler response
 app.use(golbalResponse);
-<<<<<<< HEAD:index.js
-
-=======
->>>>>>> 561cf302bc80cb75a6fdb9c741fe5102a614d984:Job_Searching_App/index.js
 // start the server
 app.listen(port, () => console.log(`app listening on port ${port}!`))
