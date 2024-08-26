@@ -12,7 +12,7 @@ config();
 
 
 const app = express()
-let port = process.env.PORT; 
+let port = process.env.port || 3000; 
 
 if(process.env.NODE_ENV == "dev") port = 5000;
 if(process.env.NODE_ENV == "prod") port = 4000;
@@ -31,6 +31,6 @@ app.use('/*', (req, res, next) => {
 
 // golbal error handler response
 app.use(golbalResponse);
-console.log(process.env)
+
 // start the server
 app.listen(port, () => console.log(`app listening on port ${port}!`))

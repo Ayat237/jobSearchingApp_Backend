@@ -5,7 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "SET NODE_ENV=dev& node index.js"
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "20.12.2"
   },
   "keywords": [],
   "author": "",
