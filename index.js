@@ -31,6 +31,9 @@ app.use('/*', (req, res, next) => {
 
 // golbal error handler response
 app.use(golbalResponse);
+<<<<<<< HEAD:index.js
 
+=======
+>>>>>>> 561cf302bc80cb75a6fdb9c741fe5102a614d984:Job_Searching_App/index.js
 // start the server
 app.listen(port, () => console.log(`app listening on port ${port}!`))
